@@ -1,10 +1,11 @@
-#'Regresion Multiple Cualitativa
-#'
-#'Realiza una regresion lineal multiple con datos cualitativos.
-#'
-#'@param data (archivo de datos)
-#'@return Lista con coeficientes de regresion, error estandar, r ajustado y r cuadrado.
-#'@export
+### Paso 1: Indicar el directorio de trabajo
+# es decir, la carpeta donde está mi base datos
+setwd("C:\\Users\\Henrry\\OneDrive - Universidad Autónoma Chapingo\\Documentos\\Zootecnia 4to\\2do Semestre\\Introduccion al computo")
+#Descargar paquete para leer excel
+#install.packages("openxlsx")
+library(openxlsx)
+df <- read.xlsx("C:/Users/Henrry/OneDrive - Universidad Autónoma Chapingo/Documentos/Zootecnia 4to/2do Semestre/Introduccion al computo/datosoriginales.xlsx")
+print(df)
 RLM_qual<- function(data) {
   # Crear variable dummy
   dummy <- model.matrix(~.-1, data = data)
@@ -53,7 +54,27 @@ RLM_qual<- function(data) {
   )
   return(valores)
 }
+resultados<-RLM_qual(df)
+print(resultados)
+library(openxlsx)
+df <- read.xlsx("C:/Users/Henrry/OneDrive - Universidad Autónoma Chapingo/Documentos/Zootecnia 4to/2do Semestre/Introduccion al computo/Datos.xlsx")
+print(df)
+prediccion <- function(Xn, ajuste) {
+  # Crear las variables dummy
+  dummy <- model.matrix(~.-1, data = Xn)
+  X <- dummy[, -1]
 
+  # Extraer las betas o coeficientes de predicción
+  betas <- ajuste$resultados[, 1]
 
+  # Crear la matriz de variables predictoras
+  X <- as.matrix(cbind(1, X))
 
+  # Calcular las predicciones
+  y_predicciones <- X %*% betas
+  return(y_predicciones)
+}
+
+predicciones <- prediccion(Xn = df, ajuste = resultados)
+print(predicciones)
 
