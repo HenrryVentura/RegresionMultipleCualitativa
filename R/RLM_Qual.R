@@ -5,7 +5,7 @@
 #'@param data (archivo de datos)
 #'@return Lista con coeficientes de regresion, error estandar, r ajustado y r cuadrado.
 #'@export
-RLM_qual <- function(data) {
+RLMqual <- function(data) {
   # Crear variable dummy
   dummy <- model.matrix(~.-1, data = data)
   dummy <- dummy[, -1]
