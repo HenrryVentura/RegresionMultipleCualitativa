@@ -5,22 +5,22 @@
 #'@param data (archivo de datos)
 #'@return Lista con coeficientes de regresion, error estandar, r ajustado y r cuadrado.
 #'@export
-RLM_qual<- function(data) {
+RLM_qual <- function(data) {
   # Crear variable dummy
   dummy <- model.matrix(~.-1, data = data)
   dummy <- dummy[, -1]
-  # Crear matriz de dise?o X y vector de respuesta Y
+  # Crear matriz de diseño X y vector de respuesta Y
   X <- as.matrix(dummy)
-  Y <- data[, 1]  # Suponiendo que la variable de respuesta esta en la primera columna
+  Y <- data[, 1]  # Suponiendo que la variable de respuesta está en la primera columna
   # Calcular XtX, su inversa y XtY
   XtX <- t(X) %*% X
   inv_XtX <- solve(XtX)
   XtY <- t(X) %*% Y
-  # Calcular coeficientes de regresi?n
+  # Calcular coeficientes de regresión
   betas <- inv_XtX %*% XtY
-  # Valores de prediccion
+  # Valores de predicción
   y_pred <- X %*% betas
-  # errores Residuales
+  # Errores residuales
   error <- Y - y_pred
   # Residual de varianza
   var_residual <- sum(error^2) / (length(Y) - ncol(X))
@@ -41,7 +41,7 @@ RLM_qual<- function(data) {
   SCE <- sum(error^2)
   SST <- sum((Y - mean(Y))^2)
   R_cuadrado <- 1 - (SCE / SST)
-  R_cuadrado_ajustado <- 1 - ((1 - R_cuadrado) * ((length(Y) - 1) / (length(Y) - ncol(X) - 1)))
+  R_cuadrado_ajustado <- 1 - ((1 - R_cuadrado) * ((length(Y) - ncol(X)) / (length(Y) - 1)))
 
   valores <- list(
     Minimo = Minimo,
@@ -53,7 +53,6 @@ RLM_qual<- function(data) {
   )
   return(valores)
 }
-
 
 
 
