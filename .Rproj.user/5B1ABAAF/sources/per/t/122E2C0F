@@ -3,7 +3,7 @@
     "path": "~/Zootecnia 4to/2do Semestre/Introduccion al computo/RegresionMultipleCualitativa/R/RLM_Qual.R",
     "project_path": "R/RLM_Qual.R",
     "type": "r_source",
-    "hash": "1123828209",
+    "hash": "2431260184",
     "contents": "",
     "dirty": false,
     "created": 1687290676074.0,
@@ -13,14 +13,14 @@
         "source_window_id": "",
         "Source": "Source",
         "cursorPosition": "13,33",
-        "scrollLine": "30"
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1687290712,
+    "lastKnownWriteTime": 1687496614,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1687290712162,
+    "last_content_update": 1687496614,
     "read_only": false,
     "read_only_alternatives": []
 }

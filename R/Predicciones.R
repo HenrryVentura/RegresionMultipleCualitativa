@@ -1,6 +1,6 @@
-#'Regresion Multiple Cualitativa
+#'Realiza una preddiccion
 #'
-#'Realiza una prediccion de los datos.
+#'Realiza una prediccion de los datos a partir del modelo ajustado.
 #'
 #'@param Xn (Datos con valores para predecir)
 #'@param Ajuste (valores ajustados para hacer las predicciones)
@@ -21,3 +21,4 @@ prediccion <- function(Xn, ajuste) {
   y_predicciones <- X %*% betas
   return(y_predicciones)
 }
+
